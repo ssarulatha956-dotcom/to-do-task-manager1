@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div>
+                <p class="eyebrow">YOUR PRODUCTIVITY SPACE</p>
+                <h1>Task Manager <span>✓</span></h1>
+                <p class="subtitle">Plan your day. Get things done.</p>
+            </div>
+            <div class="date" id="todayDate"></div>
+        </header>
+
+        <section class="stats">
+            <div class="stat-card">
+                <p>Total Tasks</p>
+                <h2 id="totalTasks">0</h2>
+            </div>
+            <div class="stat-card">
+                <p>Completed</p>
+                <h2 id="completedTasks">0</h2>
+            </div>
+            <div class="stat-card">
+                <p>Pending</p>
+                <h2 id="pendingTasks">0</h2>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Add a New Task</h2>
+            <form id="taskForm">
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="What do you need to do?"
+                    maxlength="200"
+                    required
+                >
+
+                <div class="form-row">
+                    <select id="priorityInput" aria-label="Priority">
+                        <option value="Low">Low Priority</option>
+                        <option value="Medium" selected>Medium Priority</option>
+                        <option value="High">High Priority</option>
+                    </select>
+
+                    <input
+                        type="date"
+                        id="dueDateInput"
+                        aria-label="Due date"
+                    >
+
+                    <button type="submit" id="submitBtn">+ Add Task</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="tasks-section">
+            <div class="tasks-heading">
+                <h2>My Tasks</h2>
+                <span id="taskCount">0 tasks</span>
+            </div>
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search your tasks..."
+                aria-label="Search tasks"
+            >
+
+            <div class="filters" id="filters">
+                <button class="filter active" data-filter="all">All</button>
+                <button class="filter" data-filter="pending">Pending</button>
+                <button class="filter" data-filter="completed">Completed</button>
+            </div>
+
+            <div id="taskList" class="task-list"></div>
+
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">✓</div>
+                <h3>No tasks found</h3>
+                <p>Add a task above to get started!</p>
+            </div>
+
+            <div class="footer-actions">
+                <p id="progressText">0% completed</p>
+                <button type="button" id="clearCompleted" class="clear-btn">
+                    Clear Completed
+                </button>
+            </div>
+
+            <div class="progress-track">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Stay focused. One task at a time.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
